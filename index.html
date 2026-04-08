@@ -108,16 +108,147 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
 <!-- Section II: Descriptive item-level statistics -->
 <section class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-12 border border-slate-100">
   <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅱ</span>기술통계 — 문항별 설문결과 정리</h2>
-  <p class="text-slate-600 mb-8">22개 문항 전체에 대한 평균, 5점 척도 응답 분포, 긍정률을 시각화합니다.</p>
+  <p class="text-slate-600 mb-8">22개 객관식 문항과 4개 주관식 문항의 응답을 정리합니다.</p>
 
-  <h3 class="text-lg font-bold text-slate-800 mb-3">문항별 평균 (낮은 순)</h3>
+  <h3 class="text-xl font-bold text-slate-800 mb-4">2.1 객관식 설문 (22문항)</h3>
+
+  <h4 class="text-base font-bold text-slate-700 mb-3">문항별 평균 (낮은 순)</h4>
   <div class="chart-container tall mb-10"><canvas id="itemMeanChart"></canvas></div>
 
-  <h3 class="text-lg font-bold text-slate-800 mb-3">문항별 5점 척도 응답 분포 (Stacked, %)</h3>
+  <h4 class="text-base font-bold text-slate-700 mb-3">문항별 5점 척도 응답 분포 (Stacked, %)</h4>
   <div class="chart-container tall mb-10"><canvas id="itemDistChart"></canvas></div>
 
-  <h3 class="text-lg font-bold text-slate-800 mb-3">문항별 긍정률 (4점 이상, %)</h3>
-  <div class="chart-container tall mb-6"><canvas id="positivityChart"></canvas></div>
+  <h4 class="text-base font-bold text-slate-700 mb-3">문항별 긍정률 (4점 이상, %)</h4>
+  <div class="chart-container tall mb-10"><canvas id="positivityChart"></canvas></div>
+
+  <h3 class="text-xl font-bold text-slate-800 mb-4 mt-12">2.2 주관식 설문 (4문항)</h3>
+  <p class="text-slate-600 mb-6">자유 응답 텍스트를 주제별로 묶어 빈도 순으로 정리했습니다. 괄호 안 숫자는 해당 주제로 분류된 응답 건수입니다.</p>
+
+  <!-- Q23 -->
+  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 border-l-4 border-rose-500 mb-6">
+    <div class="text-xs font-bold text-rose-600 tracking-wider mb-1">Q23</div>
+    <h4 class="text-lg font-bold text-slate-800 mb-1">업무 중 가장 스트레스 받는 순간</h4>
+    <p class="text-sm text-slate-600 mb-5">조직 구성원들이 업무 중 가장 큰 스트레스를 받는 요인은 크게 5가지로 요약됩니다.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-rose-600 font-black text-lg">1.</span><span class="font-bold text-slate-800">갑작스러운 요청 &amp; 일정 변경</span><span class="text-xs text-slate-500 ml-auto">7건</span></div>
+        <p class="text-xs text-slate-600 mb-2">기존 업무가 많은 상태에서 촉박하게 추가 요청이 들어오거나, 퇴근 임박/휴가 중 지시가 내려올 때</p>
+        <div class="text-xs text-rose-500">#긴급 요청 #일정 변경 #업무 과부하 #퇴근 임박 #휴가 중 지시</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-rose-600 font-black text-lg">2.</span><span class="font-bold text-slate-800">방향성 부재 &amp; 잦은 변경</span><span class="text-xs text-slate-500 ml-auto">5건</span></div>
+        <p class="text-xs text-slate-600 mb-2">사전 방향 제시 부족, 상위 요청 오해로 인한 재작업 반복</p>
+        <div class="text-xs text-rose-500">#방향성 부재 #재작업 #오해 #기준 변경 #의사결정 지연</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-rose-600 font-black text-lg">3.</span><span class="font-bold text-slate-800">리더십 &amp; 관리 이슈</span><span class="text-xs text-slate-500 ml-auto">4건</span></div>
+        <p class="text-xs text-slate-600 mb-2">리더의 업무 역량 파악 부족, 전문성 결여로 인한 무리한 개입, 실질적 피드백 부재</p>
+        <div class="text-xs text-rose-500">#리더십 부족 #무리한 개입 #피드백 부재 #역량 파악 미흡</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-rose-600 font-black text-lg">4.</span><span class="font-bold text-slate-800">비효율적 보고 체계</span><span class="text-xs text-slate-500 ml-auto">3건</span></div>
+        <p class="text-xs text-slate-600 mb-2">PPT 위주 보고서, 급박한 보고 일정, 보고 자체가 목적이 되어버린 업무</p>
+        <div class="text-xs text-rose-500">#PPT 보고 #급박한 일정 #형식적 보고 #비효율</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200 md:col-span-2">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-rose-600 font-black text-lg">5.</span><span class="font-bold text-slate-800">자원 부족 &amp; 보상/존중 결여</span><span class="text-xs text-slate-500 ml-auto">3건</span></div>
+        <p class="text-xs text-slate-600 mb-2">레거시 환경 유지 + AI 혁신 압박, 과도한 역할 요구 대비 보상 부족, 직원 존중 부재</p>
+        <div class="text-xs text-rose-500">#자원 부족 #AI 압박 #보상 부족 #존중 부재</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 border-l-4 border-amber-500 mb-6">
+    <div class="text-xs font-bold text-amber-600 tracking-wider mb-1">Q24</div>
+    <h4 class="text-lg font-bold text-slate-800 mb-1">가장 시급한 개선 필요 사항</h4>
+    <p class="text-sm text-slate-600 mb-5">조직 구성원들이 꼽은 가장 시급한 개선 사항은 크게 5가지로 요약됩니다.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-amber-600 font-black text-lg">1.</span><span class="font-bold text-slate-800">리소스 확보 &amp; 인력 충원</span><span class="text-xs text-slate-500 ml-auto">5건</span></div>
+        <p class="text-xs text-slate-600 mb-2">한정된 시간 대비 과도한 업무량 해결을 위한 인력 보완, 업무 우선순위 설정, 비용 투자</p>
+        <div class="text-xs text-amber-600">#인력 충원 #업무량 조정 #우선순위 #예산 투자</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-amber-600 font-black text-lg">2.</span><span class="font-bold text-slate-800">리더의 관리 역할 정상화</span><span class="text-xs text-slate-500 ml-auto">4건</span></div>
+        <p class="text-xs text-slate-600 mb-2">독단적/즉흥적 결정 지양, 명확한 방향성 가이드, 업무 통합 관리, 원활한 소통</p>
+        <div class="text-xs text-amber-600">#리더십 개선 #명확한 방향 #소통 강화 #결정 프로세스</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-amber-600 font-black text-lg">3.</span><span class="font-bold text-slate-800">비효율적 보고 &amp; 프로세스 개선</span><span class="text-xs text-slate-500 ml-auto">3건</span></div>
+        <p class="text-xs text-slate-600 mb-2">같은 내용의 다른 장표 작성 등 보고 문화 개선, 본연의 업무에 집중할 환경 조성</p>
+        <div class="text-xs text-amber-600">#보고 간소화 #프로세스 개선 #업무 집중 #중복 제거</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-amber-600 font-black text-lg">4.</span><span class="font-bold text-slate-800">조직 간 R&amp;R 정의 &amp; 비전 수립</span><span class="text-xs text-slate-500 ml-auto">3건</span></div>
+        <p class="text-xs text-slate-600 mb-2">부서 간 명확한 R&amp;R 정립, 구성원 성장 로드맵, 유연근무/재택 활성화 등 근무 환경 개선</p>
+        <div class="text-xs text-amber-600">#R&amp;R 정립 #성장 로드맵 #유연근무 #근무 환경</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200 md:col-span-2">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-amber-600 font-black text-lg">5.</span><span class="font-bold text-slate-800">체계적인 AI 환경 지원</span><span class="text-xs text-slate-500 ml-auto">3건</span></div>
+        <p class="text-xs text-slate-600 mb-2">개인 비용 지출이 아닌 전사적 AI 툴 지원, Cross-Functional AI 생태계 구축</p>
+        <div class="text-xs text-amber-600">#AI 툴 지원 #전사적 투자 #AI 생태계 #비용 지원</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 border-l-4 border-emerald-500 mb-6">
+    <div class="text-xs font-bold text-emerald-600 tracking-wider mb-1">Q25</div>
+    <h4 class="text-lg font-bold text-slate-800 mb-1">유지하고 싶은 강점</h4>
+    <p class="text-sm text-slate-600 mb-5">구성원들이 가장 긍정적으로 평가하고 유지하고 싶어 하는 핵심 강점은 크게 4가지로 요약됩니다.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-emerald-600 font-black text-lg">1.</span><span class="font-bold text-slate-800">팀원 간 끈끈한 관계와 동료애</span><span class="text-xs text-slate-500 ml-auto">6건</span></div>
+        <p class="text-xs text-slate-600 mb-2">팀원들 간의 유대감, 건강한 조직문화, 전반적으로 좋은 분위기</p>
+        <div class="text-xs text-emerald-600">#동료애 #유대감 #조직문화 #분위기</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-emerald-600 font-black text-lg">2.</span><span class="font-bold text-slate-800">자율적이고 주도적인 업무 수행</span><span class="text-xs text-slate-500 ml-auto">3건</span></div>
+        <p class="text-xs text-slate-600 mb-2">관리 공백에서도 각자 책임감 있게 수행, AI 혁신을 위해 주도적으로 고민하는 태도</p>
+        <div class="text-xs text-emerald-600">#자율성 #책임감 #주도성 #AI 혁신</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200 md:col-span-2">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-emerald-600 font-black text-lg">3.</span><span class="font-bold text-slate-800">자유로운 소통과 협업 분위기</span><span class="text-xs text-slate-500 ml-auto">6건</span></div>
+        <p class="text-xs text-slate-600 mb-2">팀 내 자유로운 의견 논의, 원활한 커뮤니케이션, 서로 돕고 방향성을 보완하는 문화</p>
+        <div class="text-xs text-emerald-600">#자유로운 소통 #협업 #의견 존중 #상호 보완</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q26 -->
+  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 border-l-4 border-indigo-500 mb-2">
+    <div class="text-xs font-bold text-indigo-600 tracking-wider mb-1">Q26</div>
+    <h4 class="text-lg font-bold text-slate-800 mb-1">리더/동료에게 바라는 1가지</h4>
+    <p class="text-sm text-slate-600 mb-5">구성원들이 리더와 동료에게 바라는 점은 크게 5가지로 요약됩니다.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-indigo-600 font-black text-lg">1.</span><span class="font-bold text-slate-800">팀장의 기본 관리 역할 &amp; 방향성</span><span class="text-xs text-slate-500 ml-auto">4건</span></div>
+        <p class="text-xs text-slate-600 mb-2">상위 지시의 정확한 이해/전달, 업무 우선순위 설정, 명확한 피드백, 체계적 스케줄/예산 관리</p>
+        <div class="text-xs text-indigo-600">#관리 역할 #방향 제시 #피드백 #우선순위</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-indigo-600 font-black text-lg">2.</span><span class="font-bold text-slate-800">투명한 정보 공유 &amp; 소통</span><span class="text-xs text-slate-500 ml-auto">3건</span></div>
+        <p class="text-xs text-slate-600 mb-2">실무 외적 이슈에 대한 솔직한 상황 공유, 상위 방향성이 정확히 전달되는 구조</p>
+        <div class="text-xs text-indigo-600">#정보 공유 #투명성 #소통 구조 #솔직함</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-indigo-600 font-black text-lg">3.</span><span class="font-bold text-slate-800">상호 배려, 존중, 공감</span><span class="text-xs text-slate-500 ml-auto">3건</span></div>
+        <p class="text-xs text-slate-600 mb-2">부적절한 호칭/반말 사용 금지, 서로 대화하고 공감하는 문화, 실무자 멘탈 이해</p>
+        <div class="text-xs text-indigo-600">#상호 존중 #공감 #배려 #매너</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-indigo-600 font-black text-lg">4.</span><span class="font-bold text-slate-800">유연한 근무 환경 &amp; 리소스 지원</span><span class="text-xs text-slate-500 ml-auto">2건</span></div>
+        <p class="text-xs text-slate-600 mb-2">탄력 근무제, 업무 집중 시간, 업무 과부하 시 일정 조율 및 리소스 지원</p>
+        <div class="text-xs text-indigo-600">#유연근무 #집중 시간 #일정 조율 #리소스</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-slate-200 md:col-span-2">
+        <div class="flex items-baseline gap-2 mb-1"><span class="text-indigo-600 font-black text-lg">5.</span><span class="font-bold text-slate-800">기존 업무의 가치 인정 &amp; 실무적 공감</span><span class="text-xs text-slate-500 ml-auto">2건</span></div>
+        <p class="text-xs text-slate-600 mb-2">새로운 일뿐 아니라 기존 업무의 가치도 존중, 리더의 직접 실무 경험을 통한 공감</p>
+        <div class="text-xs text-indigo-600">#가치 인정 #실무 공감 #기존 업무 존중</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Section III: Phenomenon diagnosis -->
