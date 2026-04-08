@@ -83,6 +83,10 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
     </div>
   </div>
 
+  <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg mb-8">
+    <p class="text-sm text-slate-700">💡 <b>데이터 해설:</b> <b>크론바흐 알파(Cronbach's α)</b>는 같은 영역을 측정하는 여러 문항에 응답자가 얼마나 일관되게 답했는지를 0~1 사이 값으로 나타내는 내적 일관성 지표입니다. 값이 높을수록 문항들이 같은 개념을 안정적으로 측정하고 있다는 의미이며, 통상 0.7 이상이면 신뢰할 수 있고 0.9 이상은 매우 우수한 수준으로 봅니다. 본 진단의 전체 α=0.91은 응답자들이 문항을 성의 없이 또는 무작위로 체크한 것이 아니라 자신의 경험에 비추어 일관된 판단을 내렸음을 보여주며, 이를 통해 <b>응답 자체의 신뢰도를 간접적으로 확인</b>할 수 있습니다.</p>
+  </div>
+
   <h3 class="text-xl font-bold text-slate-800 mb-4">1.2 7대 영역별 상세 신뢰도 분석</h3>
   <div class="chart-container mb-6"><canvas id="alphaChart"></canvas></div>
   <div class="overflow-x-auto">
@@ -223,8 +227,48 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
 <!-- Section IV: Persona Quadrant -->
 <section class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-12 border border-slate-100">
   <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅳ</span>다차원 페르소나 — 4분면 클러스터링</h2>
-  <p class="text-slate-600 mb-2">설문 전체 영역을 결합하여 <b>'내적 몰입(Y)'</b>과 <b>'구조적 지원(X)'</b>이라는 두 개의 복합 축으로 25명 구성원을 4가지 페르소나로 매핑했습니다.</p>
-  <p class="text-slate-500 text-sm mb-8">중심선: 평균 X = 2.43, Y = 3.06 · 점은 Appendix 1의 25명 응답자입니다.</p>
+  <p class="text-slate-600 mb-8">설문 전체 영역을 결합하여 <b>'내적 몰입(Y)'</b>과 <b>'구조적 지원(X)'</b>이라는 두 개의 복합 축으로 25명 구성원을 4가지 페르소나로 매핑했습니다.</p>
+
+  <h3 class="text-xl font-bold text-slate-800 mb-4">4.1 매트릭스 복합 축 정의 (Axes Definition)</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+    <div class="bg-gradient-to-br from-purple-50 to-indigo-50 border-l-4 border-purple-500 rounded-2xl p-6">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center font-black text-lg">Y</div>
+        <h4 class="text-lg font-bold text-slate-800">내적 몰입 및 자아실현 지수</h4>
+      </div>
+      <div class="text-xs font-semibold text-purple-700 mb-3 tracking-wider">ENGAGEMENT &amp; GROWTH INDEX</div>
+      <div class="bg-white rounded-xl p-4 mb-3 border border-purple-100">
+        <div class="text-xs text-slate-500 mb-2 font-semibold">구성 영역</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">성장 2.77</span>
+          <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">심리안전감 3.48</span>
+          <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">역할명확성 3.07</span>
+        </div>
+      </div>
+      <p class="text-sm text-slate-700"><b>의미:</b> 마케터로서 성장 비전을 갖고, 동료들과 소통하며 주도적으로 일하고자 하는 <b>긍정적 에너지</b>.</p>
+    </div>
+
+    <div class="bg-gradient-to-br from-pink-50 to-rose-50 border-l-4 border-pink-500 rounded-2xl p-6">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center font-black text-lg">X</div>
+        <h4 class="text-lg font-bold text-slate-800">구조적 지원 및 업무 지속성 지수</h4>
+      </div>
+      <div class="text-xs font-semibold text-pink-700 mb-3 tracking-wider">SYSTEMIC SUPPORT INDEX</div>
+      <div class="bg-white rounded-xl p-4 mb-3 border border-pink-100">
+        <div class="text-xs text-slate-500 mb-2 font-semibold">구성 영역</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-semibold">업무부하 2.42</span>
+          <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-semibold">소통 2.76</span>
+          <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-semibold">인정공정성 2.81</span>
+          <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-semibold">에너지 Q18=2.40</span>
+        </div>
+      </div>
+      <p class="text-sm text-slate-700"><b>의미:</b> 조직이 예산/인력과 빠른 결정, 따뜻한 인정 등을 통해 구성원이 원활하게 일할 수 있도록 돕는 <b>환경적 지원</b>.</p>
+    </div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mb-4">4.2 페르소나 매트릭스 시각화</h3>
+  <p class="text-slate-500 text-sm mb-6">중심선: 평균 X = 2.43, Y = 3.06 · 점은 Appendix 1의 25명 응답자입니다.</p>
 
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
     <div class="lg:col-span-2 bg-slate-50 rounded-2xl p-4">
