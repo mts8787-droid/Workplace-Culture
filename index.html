@@ -105,9 +105,24 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
   </div>
 </section>
 
-<!-- Section II: Descriptive -->
+<!-- Section II: Descriptive item-level statistics -->
 <section class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-12 border border-slate-100">
-  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅱ</span>현상 진단 — 7대 영역 거시적 건강도</h2>
+  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅱ</span>기술통계 — 문항별 설문결과 정리</h2>
+  <p class="text-slate-600 mb-8">22개 문항 전체에 대한 평균, 5점 척도 응답 분포, 긍정률을 시각화합니다.</p>
+
+  <h3 class="text-lg font-bold text-slate-800 mb-3">문항별 평균 (낮은 순)</h3>
+  <div class="chart-container tall mb-10"><canvas id="itemMeanChart"></canvas></div>
+
+  <h3 class="text-lg font-bold text-slate-800 mb-3">문항별 5점 척도 응답 분포 (Stacked, %)</h3>
+  <div class="chart-container tall mb-10"><canvas id="itemDistChart"></canvas></div>
+
+  <h3 class="text-lg font-bold text-slate-800 mb-3">문항별 긍정률 (4점 이상, %)</h3>
+  <div class="chart-container tall mb-6"><canvas id="positivityChart"></canvas></div>
+</section>
+
+<!-- Section III: Phenomenon diagnosis -->
+<section class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-12 border border-slate-100">
+  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅲ</span>현상 진단 — 7대 영역 거시적 건강도</h2>
   <p class="text-slate-600 mb-8">마케팅담당의 가장 큰 자산은 동료 간의 <strong>심리안전감(3.48)</strong>입니다. 반면 기획을 실행할 <strong>업무부하·자원 지원(2.42)</strong> 영역의 보강이 가장 시급합니다.</p>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
@@ -207,7 +222,7 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
 
 <!-- Section III: Correlation -->
 <section class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-12 border border-slate-100">
-  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅲ</span>미시적 인과관계 — 상관관계 분석</h2>
+  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅳ</span>미시적 인과관계 — 상관관계 분석</h2>
   <p class="text-slate-600 mb-8">데이터 간의 피어슨 상관계수(r)를 분석하여, 특정 영역의 개선이 조직 전체에 미치는 연동 효과를 파악합니다.</p>
   <div class="chart-container mb-8"><canvas id="corrChart"></canvas></div>
   <div class="overflow-x-auto">
@@ -226,10 +241,10 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
 
 <!-- Section IV: Persona Quadrant -->
 <section class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-12 border border-slate-100">
-  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅳ</span>다차원 페르소나 — 4분면 클러스터링</h2>
+  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅴ</span>다차원 페르소나 — 4분면 클러스터링</h2>
   <p class="text-slate-600 mb-8">설문 전체 영역을 결합하여 <b>'내적 몰입(Y)'</b>과 <b>'구조적 지원(X)'</b>이라는 두 개의 복합 축으로 25명 구성원을 4가지 페르소나로 매핑했습니다.</p>
 
-  <h3 class="text-xl font-bold text-slate-800 mb-4">4.1 매트릭스 복합 축 정의 (Axes Definition)</h3>
+  <h3 class="text-xl font-bold text-slate-800 mb-4">5.1 매트릭스 복합 축 정의 (Axes Definition)</h3>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
     <div class="bg-gradient-to-br from-purple-50 to-indigo-50 border-l-4 border-purple-500 rounded-2xl p-6">
       <div class="flex items-center gap-3 mb-3">
@@ -267,7 +282,7 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
     </div>
   </div>
 
-  <h3 class="text-xl font-bold text-slate-800 mb-4">4.2 페르소나 매트릭스 시각화</h3>
+  <h3 class="text-xl font-bold text-slate-800 mb-4">5.2 페르소나 매트릭스 시각화</h3>
   <p class="text-slate-500 text-sm mb-6">중심선: 평균 X = 2.43, Y = 3.06 · 점은 Appendix 1의 25명 응답자입니다.</p>
 
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
@@ -313,19 +328,19 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
     </div>
   </div>
 
-  <h3 class="text-xl font-bold text-slate-800 mb-4 mt-10">4.3 통계적 가설 검증 — ANOVA &amp; 공분산</h3>
+  <h3 class="text-xl font-bold text-slate-800 mb-4 mt-10">5.3 통계적 가설 검증 — ANOVA &amp; 공분산</h3>
   <p class="text-slate-600 mb-6">45%를 차지하는 '헌신적 열정형(Committed)' 그룹의 특성과 처방의 수학적 정당성을 검증합니다.</p>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
     <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6 border border-indigo-100">
-      <h3 class="font-bold text-indigo-900 mb-3">5.1 일원분산분석 (ANOVA)</h3>
+      <h3 class="font-bold text-indigo-900 mb-3">일원분산분석 (ANOVA)</h3>
       <p class="text-sm text-slate-700 mb-3">Committed 그룹은 1사분면(Star)과 <b>'심리안전감'을 동일하게 높게</b> 공유하지만, '업무부하·자원 부족'은 3사분면(Cynic)과 유사하게 낮은 점수를 기록.</p>
       <div class="bg-white p-4 rounded-xl border border-indigo-200">
         <p class="text-sm text-indigo-900"><b>통계적 결론:</b> 구성원 피로도는 개인 역량 때문이 아니라 <b>'도구와 환경의 지원 부족'</b>이라는 객관적 사실에 기인함이 데이터로 완벽히 입증되었습니다.</p>
       </div>
     </div>
     <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-6 border border-pink-100">
-      <h3 class="font-bold text-pink-900 mb-3">5.2 공분산 분석 (Covariance)</h3>
+      <h3 class="font-bold text-pink-900 mb-3">공분산 분석 (Covariance)</h3>
       <p class="text-sm text-slate-700 mb-3">인정공정성(Q20·Q21) 점수와 성장(Q14·Q16) 기대감 간 <b>매우 강력한 긍정적 공분산</b>이 도출됨.</p>
       <div class="bg-white p-4 rounded-xl border border-pink-200">
         <p class="text-sm text-pink-900"><b>통계적 결론:</b> 예산·인력을 당장 보충하기 어렵더라도 리더의 진심 어린 <b>'인정' 한마디</b>가 성장 기대감을 보호하는 심리적 백신이 됨이 과학적으로 증명되었습니다.</p>
@@ -340,7 +355,7 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
 
 <!-- Section V: Regression -->
 <section class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-12 border-t-8 border-pink-500">
-  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅴ</span>다중회귀분석 — 우리의 출근 에너지에 영향을 주는 요인</h2>
+  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅵ</span>다중회귀분석 — 우리의 출근 에너지에 영향을 주는 요인</h2>
   <p class="text-slate-600 mb-8">출근 시 에너지(Q18)를 종속변수로 한 회귀모델은 <b>R²=0.65</b> — 의욕 변화의 65%를 설명하는 매우 우수한 예측력을 가집니다.</p>
   <div class="chart-container mb-8"><canvas id="regChart"></canvas></div>
 
@@ -378,7 +393,7 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
 
 <!-- Section VII: Strategy -->
 <section class="bg-gradient-to-br from-indigo-900 to-slate-900 rounded-3xl shadow-2xl p-8 md:p-12 mb-12 text-white">
-  <h2 class="text-2xl md:text-3xl font-bold mb-2 flex items-center"><span class="section-num">Ⅵ</span>지속 가능한 성장을 위한 3대 제언</h2>
+  <h2 class="text-2xl md:text-3xl font-bold mb-2 flex items-center"><span class="section-num">Ⅶ</span>지속 가능한 성장을 위한 3대 제언</h2>
   <p class="text-indigo-200 mb-10">25명의 데이터와 정교한 통계 분석이 제시한 방향성을 요약합니다.</p>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     <div class="bg-white/10 backdrop-blur border border-white/20 p-8 rounded-2xl text-center hover:bg-white/20 transition">
@@ -399,19 +414,10 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
   </div>
 </section>
 
-<!-- Appendix 2: Item-level distribution -->
+<!-- Section VIII: Action Items -->
 <section class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-12 border border-slate-100">
-  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">A2</span>Appendix 2 — 문항별 상세 분석</h2>
-  <p class="text-slate-600 mb-8">22개 문항 전체에 대한 평균, 5점 척도 응답 분포, 긍정률을 시각화합니다.</p>
-
-  <h3 class="text-lg font-bold text-slate-800 mb-3">문항별 평균 (낮은 순)</h3>
-  <div class="chart-container tall mb-10"><canvas id="itemMeanChart"></canvas></div>
-
-  <h3 class="text-lg font-bold text-slate-800 mb-3">문항별 5점 척도 응답 분포 (Stacked, %)</h3>
-  <div class="chart-container tall mb-10"><canvas id="itemDistChart"></canvas></div>
-
-  <h3 class="text-lg font-bold text-slate-800 mb-3">문항별 긍정률 (4점 이상, %)</h3>
-  <div class="chart-container tall mb-6"><canvas id="positivityChart"></canvas></div>
+  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅷ</span>액션 아이템</h2>
+  <p class="text-slate-600 mb-8">3대 제언을 실행으로 옮기기 위한 구체적 액션 아이템 (작성 예정).</p>
 </section>
 
 <!-- Appendix 1 table -->
