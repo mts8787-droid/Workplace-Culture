@@ -122,8 +122,10 @@ blockquote{border-left:3px solid #8B5CF6;padding:6px 14px;margin:8px 0;color:#47
 
 <!-- Section III: Phenomenon diagnosis -->
 <section class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-12 border border-slate-100">
-  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅲ</span>현상 진단 — 7대 영역 거시적 건강도</h2>
-  <p class="text-slate-600 mb-8">마케팅담당의 가장 큰 자산은 동료 간의 <strong>심리안전감(3.48)</strong>입니다. 반면 기획을 실행할 <strong>업무부하·자원 지원(2.42)</strong> 영역의 보강이 가장 시급합니다.</p>
+  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 flex items-center"><span class="section-num">Ⅲ</span>현상진단 — 우리는 지금 어떻게 느끼고 있나요?</h2>
+  <div class="bg-indigo-50 border-l-4 border-indigo-500 p-5 rounded-r-lg mb-8">
+    <p class="text-slate-800 text-base md:text-lg leading-relaxed font-semibold">마케팅담당의 가장 큰 자산은 동료 간의 <strong class="text-indigo-700">심리안전감(3.48)</strong>입니다. 반면 기획을 실행할 <strong class="text-rose-600">업무부하·자원 지원(2.42)</strong> 영역의 보강이 가장 시급합니다.</p>
+  </div>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
     <div class="bg-slate-50 rounded-2xl p-6">
@@ -623,19 +625,46 @@ const items = [
 const sortedByMean = [...items].sort((a,b)=>a.mean-b.mean);
 const sortedByPos  = [...items].sort((a,b)=>a.pos-b.pos);
 
+// shared 5-band palette for descriptive charts (matches stacked distribution colors)
+const bandColors = ["#EF4444","#F59E0B","#FCD34D","#60A5FA","#10B981"];
+function meanColor(m){
+  if(m<2.0)return bandColors[0];
+  if(m<2.5)return bandColors[1];
+  if(m<3.0)return bandColors[2];
+  if(m<3.5)return bandColors[3];
+  return bandColors[4];
+}
+function posColor(p){
+  if(p<20)return bandColors[0];
+  if(p<35)return bandColors[1];
+  if(p<50)return bandColors[2];
+  if(p<65)return bandColors[3];
+  return bandColors[4];
+}
+const meanLegendLabels = [
+  {text:"위험 (<2.0)",fillStyle:bandColors[0],strokeStyle:bandColors[0],lineWidth:0},
+  {text:"주의 (2.0–2.5)",fillStyle:bandColors[1],strokeStyle:bandColors[1],lineWidth:0},
+  {text:"보통 (2.5–3.0)",fillStyle:bandColors[2],strokeStyle:bandColors[2],lineWidth:0},
+  {text:"양호 (3.0–3.5)",fillStyle:bandColors[3],strokeStyle:bandColors[3],lineWidth:0},
+  {text:"우수 (≥3.5)",fillStyle:bandColors[4],strokeStyle:bandColors[4],lineWidth:0}
+];
+const posLegendLabels = [
+  {text:"위험 (<20%)",fillStyle:bandColors[0],strokeStyle:bandColors[0],lineWidth:0},
+  {text:"주의 (20–35%)",fillStyle:bandColors[1],strokeStyle:bandColors[1],lineWidth:0},
+  {text:"보통 (35–50%)",fillStyle:bandColors[2],strokeStyle:bandColors[2],lineWidth:0},
+  {text:"양호 (50–65%)",fillStyle:bandColors[3],strokeStyle:bandColors[3],lineWidth:0},
+  {text:"우수 (≥65%)",fillStyle:bandColors[4],strokeStyle:bandColors[4],lineWidth:0}
+];
+
 // item mean horizontal bar
 new Chart(document.getElementById("itemMeanChart"),{
   type:"bar",
   data:{labels:sortedByMean.map(i=>i.label),
     datasets:[{label:"평균",data:sortedByMean.map(i=>i.mean),
-      backgroundColor:sortedByMean.map(i=>{
-        if(i.mean<2.5)return"rgba(239,68,68,0.85)";
-        if(i.mean<3.0)return"rgba(245,158,11,0.85)";
-        if(i.mean<3.5)return"rgba(59,130,246,0.85)";
-        return"rgba(16,185,129,0.85)";
-      }),borderRadius:5}]},
+      backgroundColor:sortedByMean.map(i=>meanColor(i.mean)),borderRadius:5}]},
   options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,
-    scales:{x:{min:0,max:5}},plugins:{legend:{display:false}}}
+    scales:{x:{min:0,max:5}},
+    plugins:{legend:{display:true,position:"top",labels:{generateLabels:()=>meanLegendLabels}}}}
 });
 
 // stacked distribution chart
@@ -645,7 +674,7 @@ function pct(idx,k){return (items[idx].d[k]/totals[idx])*100}
 const distDatasets = [0,1,2,3,4].map(k=>({
   label:`${k+1}점`,
   data:items.map((_,idx)=>pct(idx,k)),
-  backgroundColor:["#EF4444","#F59E0B","#FCD34D","#60A5FA","#10B981"][k]
+  backgroundColor:bandColors[k]
 }));
 new Chart(document.getElementById("itemDistChart"),{
   type:"bar",
@@ -661,15 +690,10 @@ new Chart(document.getElementById("positivityChart"),{
   type:"bar",
   data:{labels:sortedByPos.map(i=>i.label),
     datasets:[{label:"긍정률(%)",data:sortedByPos.map(i=>i.pos),
-      backgroundColor:sortedByPos.map(i=>{
-        if(i.pos<25)return"rgba(239,68,68,0.85)";
-        if(i.pos<40)return"rgba(245,158,11,0.85)";
-        if(i.pos<55)return"rgba(59,130,246,0.85)";
-        return"rgba(16,185,129,0.85)";
-      }),borderRadius:5}]},
+      backgroundColor:sortedByPos.map(i=>posColor(i.pos)),borderRadius:5}]},
   options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,
     scales:{x:{min:0,max:80,ticks:{callback:v=>v+"%"}}},
-    plugins:{legend:{display:false}}}
+    plugins:{legend:{display:true,position:"top",labels:{generateLabels:()=>posLegendLabels}}}}
 });
 </script>
 </body>
